@@ -1,8 +1,12 @@
 cask "session" do
-  version "1.15.0"
-  sha256 "bf78a795e8ccbd5f2913368c7bd1a393c66d9f800e5ce7c3cdaaa1b3bff4eefc"
+  arch arm: "arm64", intel: "x64"
 
-  url "https://github.com/session-foundation/session-desktop/releases/download/v#{version}/session-desktop-mac-x64-#{version}.dmg",
+  version "1.15.2"
+  # TODO: Fill in the sha256
+  sha256 arm: ""
+         intel: ""
+
+  url "https://github.com/session-foundation/session-desktop/releases/download/v#{version}/session-desktop-mac-#{arch}-#{version}.dmg",
       verified: "github.com/session-foundation/session-desktop/"
   name "Session"
   desc "Onion routing based messenger"
@@ -13,6 +17,7 @@ cask "session" do
     strategy :github_latest
   end
 
+  auto_updates true
   depends_on macos: ">= :ventura"
 
   app "Session.app"
